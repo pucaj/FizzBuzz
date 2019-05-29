@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div style="margin-top: 50px; width: inherit; text-align: center;">
+    <p style="font-size: 20px; margin-bottom: 20px;">Wprowadź do formularza liczbę z przedziału [1, 100]</p>
+
+    <form method="post" runat="server">
+        <div asp-validation-summary="ModelOnly" runat="server" class="text-danger"></div>
+        <label>Wprowadź dane</label><br />
+        <input asp-for="Input" runat="server" class="form-control" style="margin-left: auto; margin-right: auto; width: 100px;" min="1" max="100" />
+        <span asp-validation-for="Input" runat="server" class="text-danger">@Model.ValidationMsg</span>
+        <br />
+        <input type="submit" value="Odpowiedz" runat="server" class="btn btn-default" style="margin-top: 10px;"/>
+    </form>
+
+    <p runat="server" style="margin: 50px 0px 50px 0px;">
+        Odpowiedź: <i>@Model.OutputString</i>
+    </p>
+
+</div>
